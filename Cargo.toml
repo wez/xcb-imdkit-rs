@@ -19,7 +19,7 @@ name = "example"
 path = "examples/example.rs"
 
 [dependencies]
-xcb = {version="1.1", features=["xkb"], git="https://github.com/wez/rust-xcb", branch="ffi"}
+xcb = {version="1.1.1", features=["xkb"], git="https://github.com/rust-x-bindings/rust-xcb", rev="a85a4cf8937898b1da972367df4648143ede38ea"}
 lazy_static = "1.4.0"
 bitflags = "1.3"
 

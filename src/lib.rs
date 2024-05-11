@@ -326,11 +326,15 @@ impl<'a> PreeditInfo<'a> {
     /// Feedback information to each character of preedit text.
     /// Refer to [`InputFeedback`] for more details.
     pub fn feedback_array(&self) -> &[u32] {
-        unsafe {
-            std::slice::from_raw_parts(
-                self.inner.feedback_array.items,
-                self.inner.feedback_array.size as usize,
-            )
+        if self.inner.feedback_array.size == 0 {
+            &[]
+        } else {
+            unsafe {
+                std::slice::from_raw_parts(
+                    self.inner.feedback_array.items,
+                    self.inner.feedback_array.size as usize,
+                )
+            }
         }
     }
 }
